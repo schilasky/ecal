@@ -10,7 +10,7 @@
     <meta name="docsearch:release" content="" />
     <meta name="docsearch:version" content="" />
 
-    <title>Overview &mdash; eCAL Documentation  documentation</title>
+    <title>eCAL Rec Architecture &mdash; eCAL Documentation  documentation</title>
 
     <link rel="shortcut icon" href="../../_static/img/favicon.png" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
@@ -39,9 +39,12 @@
         <div class="page-header">
             <div class="page-header-inner">
 <!-- pageheader -->
-<a href="https://continental.github.io/ecal/" title="eCAL Documentation" class="logo">
+
+<div class="logo">
+<a href="https://continental.github.io/ecal/" title="eCAL Documentation" >
     <img src="../../_static/img/ecal-logo.svg" width="484" height="130" alt="eCAL Logo" class="logo-image" />
 </a>
+</div>
 <!-- /pageheader -->
             </div>
         </div>
@@ -332,13 +335,14 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../applications.html">Applications</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="recorder.html"> eCAL Rec</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#"> Overview</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"> eCAL Rec Architecture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="recorder_gui.html"> eCAL Rec GUI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="recorder_cli.html"> eCAL Rec CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recorder_client.html"> eCAL Rec Client</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../sys/sys.html"> eCAL Sys</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../sys/sys_overview.html"> eCAL Sys Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sys/sys_architecture.html"> eCAL Sys Architecture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sys/sys_gui.html"> eCAL Sys GUI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sys/sys_cli.html"> eCAL Sys CLI</a></li>
 </ul>
@@ -397,8 +401,9 @@
 
                                     <p class="caption"><span class="caption-text">PAGE CONTENTS</span></p>
                                     <ul>
-<li><a class="reference internal" href="#"> Overview</a><ul>
-<li><a class="reference internal" href="#architecture">Architecture</a></li>
+<li><a class="reference internal" href="#"> eCAL Rec Architecture</a><ul>
+<li><a class="reference internal" href="#centralized-vs-distributed-recordings">Centralized vs. Distributed Recordings</a></li>
+<li><a class="reference internal" href="#host-client-architecture">Host / Client Architecture</a></li>
 </ul>
 </li>
 </ul>
@@ -420,14 +425,20 @@
         <li class="breadcrumb-item"><a href="../../index.html">Start</a></li>
             <li class="breadcrumb-item"><a href="../../applications.html">Applications</a></li>
             <li class="breadcrumb-item"><a href="recorder.html"> eCAL Rec</a></li>
-        <li class="breadcrumb-item active" aria-current="page"> Overview</li>
+        <li class="breadcrumb-item active" aria-current="page"> eCAL Rec Architecture</li>
     </ol>
         <div class="breadcrumb-additions">
-                <a class="btn btn-sm btn-light" href="https://github.com/continental/ecal/blob/master/doc/rst/applications/rec/recorder_overview.rst">
+            <a class="btn btn-sm btn-primary" id="btnHowToEdit"
+               href="https://continental.github.io/ecal/advanced/documentation.html"
+               rel="nofollow noopener" target="_blank">
+                <span class="btn-icon"><span class="fas fa-info-circle"></span></span>
+                <span class="btn-text">How to edit</span>
+            </a>
+                <a class="btn btn-sm btn-light" id="btnEditOnGitHub" href="https://github.com/continental/ecal/blob/master/doc/rst/applications/rec/recorder_architecture.rst">
                     <span class="btn-icon"><span class="fab fa-github"></span></span>
                     <span class="btn-text">Edit on GitHub</span>
                 </a>
-                <a class="btn btn-sm btn-light" href="../../_sources/applications/rec/recorder_overview.rst.txt" rel="nofollow">
+                <a class="btn btn-sm btn-light" href="../../_sources/applications/rec/recorder_architecture.rst.txt" rel="nofollow">
                     <span class="btn-icon"><span class="fas fa-code"></span></span>
                     <span class="btn-text">View source</span>
                 </a>
@@ -437,19 +448,37 @@
                         <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
                             <div itemprop="articleBody">
 <!-- body -->
-    <section id="ecalrec-app-icon-h1-overview">
-<span id="applications-recorder-advanced-overview"></span><h1><a class="reference internal" href="../../_images/ecalrec.ico"><img alt="ecalrec_APP_ICON_h1" src="../../_images/ecalrec.ico" style="width: 38px;" /></a> Overview<a class="headerlink" href="#ecalrec-app-icon-h1-overview" title="Permalink to this headline">¶</a></h1>
-<p>In this chapter we will take a deeper look at the eCAL Recorder.
-We will discuss the Host / Client architecture and look at all available configuration options and functions in the GUI.</p>
+    <section id="ecalrec-app-icon-h1-ecal-rec-architecture">
+<span id="applications-recorder-architecture"></span><h1><a class="reference internal" href="../../_images/ecalrec.ico"><img alt="ecalrec_APP_ICON_h1" src="../../_images/ecalrec.ico" style="width: 38px;" /></a> eCAL Rec Architecture<a class="headerlink" href="#ecalrec-app-icon-h1-ecal-rec-architecture" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will take a deeper look at the different recording modes and the host / client architecture of eCAL Rec.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>If you are new to eCAL Rec, please first check out the <a class="reference internal" href="../../getting_started/recorder.html#getting-started-recorder"><span class="std std-ref">Getting Started with eCAL Rec</span></a> chapter.
 That chapter will teach you the very basics of eCAL Rec.</p>
-<p>If you don’t want to use the GUI, please see the <a class="reference internal" href="recorder_cli.html#applications-recorder-cli"><span class="std std-ref"> eCAL Rec CLI</span></a> chapter.</p>
 </div>
-<section id="architecture">
-<span id="applications-recorder-architecture"></span><h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
-<p>eCAL Rec consists of 2 applications:</p>
+<section id="centralized-vs-distributed-recordings">
+<span id="applications-recorder-centralized-distributed-recording"></span><h2>Centralized vs. Distributed Recordings<a class="headerlink" href="#centralized-vs-distributed-recordings" title="Permalink to this headline">¶</a></h2>
+<p>The eCAL Recorder has two essential modes for creating recordings:</p>
+<ol class="arabic">
+<li><p><strong>Centralized recording</strong>:</p>
+<p>This means that you simply start the eCAL Recorder on one of your many machines.
+It will subscribe to all topics and record the data to your hard drive.
+Data from remote machines will be sent via network.</p>
+<p>This is the most trivial and easy to use mode, as you only need one application on one machine.</p>
+</li>
+<li><p><strong>Distributed recording</strong>:</p>
+<p>When having many eCAL applications, it is generally advisable to run applications that exchange huge amounts of data on the same machine, as eCAL will then use its shared memory transport mechanism, which is way faster than sending data over the network.
+The recorder can also take advantage of that feature and avoid network congestion while running a recording.
+For this mode you will have to launch the eCAL Recorder on one of your machines and the eCAL Recorder Client on all of your other machines.</p>
+<p>Now each Recorder and Recorder Client will only record topics coming from their respectable machine and record them to their local hard drive.
+After you finished your test, you can then let the Recorder Clients push their files to your main PC to get a contiguous recording.</p>
+<p>Of course, mixed configurations are possible (e.g. some machines will only record their own topics, while other machines will also record topics of some external machines).</p>
+</li>
+</ol>
+</section>
+<section id="host-client-architecture">
+<span id="applications-recorder-host-client-architecture"></span><h2>Host / Client Architecture<a class="headerlink" href="#host-client-architecture" title="Permalink to this headline">¶</a></h2>
+<p>A (distributed) eCAL Rec setup consists of 2 applications:</p>
 <ol class="arabic">
 <li><p>The <strong>Host Application</strong>.
 This can be either one of:</p>
@@ -515,7 +544,7 @@ It features a richer set of parameters, can load config files and has an interac
                 <div class="footer-additional">
                     <p class="text-center">
                         <a href="https://github.com/TYPO3-Documentation/sphinx_typo3_theme" rel="nofollow" target="_blank">
-                            TYPO3 Theme 4.4.3
+                            TYPO3 Theme 4.5.2
                         </a>
                     </p>
                 </div>

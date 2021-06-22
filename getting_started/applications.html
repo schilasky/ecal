@@ -38,9 +38,12 @@
         <div class="page-header">
             <div class="page-header-inner">
 <!-- pageheader -->
-<a href="https://continental.github.io/ecal/" title="eCAL Documentation" class="logo">
+
+<div class="logo">
+<a href="https://continental.github.io/ecal/" title="eCAL Documentation" >
     <img src="../_static/img/ecal-logo.svg" width="484" height="130" alt="eCAL Logo" class="logo-image" />
 </a>
+</div>
 <!-- /pageheader -->
             </div>
         </div>
@@ -331,13 +334,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../applications.html">Applications</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../applications/rec/recorder.html"> eCAL Rec</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../applications/rec/recorder_overview.html"> Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/rec/recorder_architecture.html"> eCAL Rec Architecture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../applications/rec/recorder_gui.html"> eCAL Rec GUI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../applications/rec/recorder_cli.html"> eCAL Rec CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/rec/recorder_client.html"> eCAL Rec Client</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../applications/sys/sys.html"> eCAL Sys</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../applications/sys/sys_overview.html"> eCAL Sys Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/sys/sys_architecture.html"> eCAL Sys Architecture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../applications/sys/sys_gui.html"> eCAL Sys GUI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../applications/sys/sys_cli.html"> eCAL Sys CLI</a></li>
 </ul>
@@ -417,7 +421,13 @@
         <li class="breadcrumb-item active" aria-current="page"><span class="section-number">6. </span>Applications</li>
     </ol>
         <div class="breadcrumb-additions">
-                <a class="btn btn-sm btn-light" href="https://github.com/continental/ecal/blob/master/doc/rst/getting_started/applications.rst">
+            <a class="btn btn-sm btn-primary" id="btnHowToEdit"
+               href="https://continental.github.io/ecal/advanced/documentation.html"
+               rel="nofollow noopener" target="_blank">
+                <span class="btn-icon"><span class="fas fa-info-circle"></span></span>
+                <span class="btn-text">How to edit</span>
+            </a>
+                <a class="btn btn-sm btn-light" id="btnEditOnGitHub" href="https://github.com/continental/ecal/blob/master/doc/rst/getting_started/applications.rst">
                     <span class="btn-icon"><span class="fab fa-github"></span></span>
                     <span class="btn-text">Edit on GitHub</span>
                 </a>
@@ -434,8 +444,10 @@
     <section id="applications">
 <span id="getting-started-applications"></span><h1><span class="section-number">6. </span>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h1>
 <p>In the following sections we will look at the most important applications that ship with eCAL.</p>
-<p>We will start with the eCAL Monitor that is mainly useful for debugging, as it lets you easily see what is going on in your eCAL network.</p>
-<p>We then look at the eCAL Recorder and eCAL Player. Those applications let you record and replay snapshots of eCAL traffic.</p>
+<p>We will start with the <strong>eCAL Monitor</strong> that is mainly useful for debugging, as it lets you easily see what is going on in your eCAL network.</p>
+<p>We then look at the <strong>eCAL Recorder</strong> and <strong>eCAL Player</strong>.
+Those applications let you record and replay snapshots of eCAL traffic.</p>
+<p>Last we check out <strong>eCAL Sys</strong>, which is an application to manage your (distributed) startup configurations and monitor your started eCAL Tasks.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="monitor.html">6.1.  Monitor</a></li>
@@ -443,6 +455,10 @@
 <li class="toctree-l1"><a class="reference internal" href="player.html">6.3.  Player</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sys.html">6.4.  Sys</a></li>
 </ul>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>While this Getting Started Chapter only briefly covers all applications, you can check out the separate <a class="reference internal" href="../applications.html#applications"><span class="std std-ref">Advanced Applications Chapter</span></a> to learn more about all features of the eCAL tools.</p>
 </div>
 </section>
 
@@ -482,7 +498,7 @@
                 <div class="footer-additional">
                     <p class="text-center">
                         <a href="https://github.com/TYPO3-Documentation/sphinx_typo3_theme" rel="nofollow" target="_blank">
-                            TYPO3 Theme 4.4.3
+                            TYPO3 Theme 4.5.2
                         </a>
                     </p>
                 </div>

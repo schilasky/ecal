@@ -24,8 +24,8 @@
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="top" title="eCAL Documentation  documentation" href="#" />
     <link rel="up" title="Applications" href="../../applications.html" />
-    <link rel="next" title="eCAL Sys Overview" href="sys_overview.html" />
-    <link rel="prev" title="eCAL Rec CLI" href="../rec/recorder_cli.html" />
+    <link rel="next" title="eCAL Sys Architecture" href="sys_architecture.html" />
+    <link rel="prev" title="eCAL Rec Client" href="../rec/recorder_client.html" />
 <!-- /linktags -->
 <!-- extrahead --><!-- /extrahead -->
     <script src="../../_static/js/modernizr.min.js"></script>
@@ -39,9 +39,12 @@
         <div class="page-header">
             <div class="page-header-inner">
 <!-- pageheader -->
-<a href="https://continental.github.io/ecal/" title="eCAL Documentation" class="logo">
+
+<div class="logo">
+<a href="https://continental.github.io/ecal/" title="eCAL Documentation" >
     <img src="../../_static/img/ecal-logo.svg" width="484" height="130" alt="eCAL Logo" class="logo-image" />
 </a>
+</div>
 <!-- /pageheader -->
             </div>
         </div>
@@ -332,13 +335,14 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../applications.html">Applications</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../rec/recorder.html"> eCAL Rec</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../rec/recorder_overview.html"> Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rec/recorder_architecture.html"> eCAL Rec Architecture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rec/recorder_gui.html"> eCAL Rec GUI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rec/recorder_cli.html"> eCAL Rec CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rec/recorder_client.html"> eCAL Rec Client</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#"> eCAL Sys</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sys_overview.html"> eCAL Sys Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sys_architecture.html"> eCAL Sys Architecture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sys_gui.html"> eCAL Sys GUI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sys_cli.html"> eCAL Sys CLI</a></li>
 </ul>
@@ -408,8 +412,8 @@
                     <div class="rst-content">
 <!-- pager-hidden.html -->
 
-        <a class="no-focus" accesskey="p" href="../rec/recorder_cli.html" tabindex="-1"></a>
-        <a class="no-focus" accesskey="n" href="sys_overview.html" tabindex="-1"></a>
+        <a class="no-focus" accesskey="p" href="../rec/recorder_client.html" tabindex="-1"></a>
+        <a class="no-focus" accesskey="n" href="sys_architecture.html" tabindex="-1"></a>
 <!-- /pager-hidden.html -->
 <!-- breadcrumbs.html -->
 <div class="breadcrumb-bar" role="navigation" aria-label="breadcrumbs navigation">
@@ -419,7 +423,13 @@
         <li class="breadcrumb-item active" aria-current="page"> eCAL Sys</li>
     </ol>
         <div class="breadcrumb-additions">
-                <a class="btn btn-sm btn-light" href="https://github.com/continental/ecal/blob/master/doc/rst/applications/sys/sys.rst">
+            <a class="btn btn-sm btn-primary" id="btnHowToEdit"
+               href="https://continental.github.io/ecal/advanced/documentation.html"
+               rel="nofollow noopener" target="_blank">
+                <span class="btn-icon"><span class="fas fa-info-circle"></span></span>
+                <span class="btn-text">How to edit</span>
+            </a>
+                <a class="btn btn-sm btn-light" id="btnEditOnGitHub" href="https://github.com/continental/ecal/blob/master/doc/rst/applications/sys/sys.rst">
                     <span class="btn-icon"><span class="fab fa-github"></span></span>
                     <span class="btn-text">Edit on GitHub</span>
                 </a>
@@ -439,9 +449,9 @@
 This chapter will give you deeper information about eCAL Sys.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="sys_overview.html"> eCAL Sys Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sys_overview.html#architecture">Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sys_overview.html#configuration-files">Configuration Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sys_architecture.html"> eCAL Sys Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sys_architecture.html#sys-applications-host-client-mma">Sys Applications - Host, Client, MMA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sys_architecture.html#configuration-files">Configuration Files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sys_gui.html"> eCAL Sys GUI</a><ul>
@@ -459,6 +469,11 @@ This chapter will give you deeper information about eCAL Sys.</p>
 </li>
 </ul>
 </div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>If you are new to eCAL Sys, please first check out the <a class="reference internal" href="../../getting_started/sys.html#getting-started-sys"><span class="std std-ref">Getting Started with eCAL Sys</span></a> chapter.
+That chapter will teach you the very basics of eCAL Sys.</p>
+</div>
 </section>
 
 <!-- /body -->
@@ -468,12 +483,12 @@ This chapter will give you deeper information about eCAL Sys.</p>
 <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
         <li class="page-item">
-            <a class="page-link" href="../rec/recorder_cli.html" title="Accesskey Alt(+Shift)+p">
+            <a class="page-link" href="../rec/recorder_client.html" title="Accesskey Alt(+Shift)+p">
                 Previous
             </a>
         </li>
         <li class="page-item">
-            <a class="page-link" href="sys_overview.html" title="Accesskey Alt(+Shift)+n">
+            <a class="page-link" href="sys_architecture.html" title="Accesskey Alt(+Shift)+n">
                 Next
             </a>
         </li>
@@ -497,7 +512,7 @@ This chapter will give you deeper information about eCAL Sys.</p>
                 <div class="footer-additional">
                     <p class="text-center">
                         <a href="https://github.com/TYPO3-Documentation/sphinx_typo3_theme" rel="nofollow" target="_blank">
-                            TYPO3 Theme 4.4.3
+                            TYPO3 Theme 4.5.2
                         </a>
                     </p>
                 </div>

@@ -38,9 +38,12 @@
         <div class="page-header">
             <div class="page-header-inner">
 <!-- pageheader -->
-<a href="https://continental.github.io/ecal/" title="eCAL Documentation" class="logo">
+
+<div class="logo">
+<a href="https://continental.github.io/ecal/" title="eCAL Documentation" >
     <img src="_static/img/ecal-logo.svg" width="484" height="130" alt="eCAL Logo" class="logo-image" />
 </a>
+</div>
 <!-- /pageheader -->
             </div>
         </div>
@@ -331,13 +334,14 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Applications</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="applications/rec/recorder.html"> eCAL Rec</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="applications/rec/recorder_overview.html"> Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="applications/rec/recorder_architecture.html"> eCAL Rec Architecture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="applications/rec/recorder_gui.html"> eCAL Rec GUI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="applications/rec/recorder_cli.html"> eCAL Rec CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="applications/rec/recorder_client.html"> eCAL Rec Client</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="applications/sys/sys.html"> eCAL Sys</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="applications/sys/sys_overview.html"> eCAL Sys Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="applications/sys/sys_architecture.html"> eCAL Sys Architecture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="applications/sys/sys_gui.html"> eCAL Sys GUI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="applications/sys/sys_cli.html"> eCAL Sys CLI</a></li>
 </ul>
@@ -417,7 +421,13 @@
         <li class="breadcrumb-item active" aria-current="page">Applications</li>
     </ol>
         <div class="breadcrumb-additions">
-                <a class="btn btn-sm btn-light" href="https://github.com/continental/ecal/blob/master/doc/rst/applications.rst">
+            <a class="btn btn-sm btn-primary" id="btnHowToEdit"
+               href="https://continental.github.io/ecal/advanced/documentation.html"
+               rel="nofollow noopener" target="_blank">
+                <span class="btn-icon"><span class="fas fa-info-circle"></span></span>
+                <span class="btn-text">How to edit</span>
+            </a>
+                <a class="btn btn-sm btn-light" id="btnEditOnGitHub" href="https://github.com/continental/ecal/blob/master/doc/rst/applications.rst">
                     <span class="btn-icon"><span class="fab fa-github"></span></span>
                     <span class="btn-text">Edit on GitHub</span>
                 </a>
@@ -436,47 +446,16 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="applications/rec/recorder.html"> eCAL Rec</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="applications/rec/recorder_overview.html"> Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="applications/rec/recorder_overview.html#architecture">Architecture</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="applications/rec/recorder_gui.html"> eCAL Rec GUI</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="applications/rec/recorder_gui.html#main-control-panel">Main Control Panel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="applications/rec/recorder_gui.html#topics">Topics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="applications/rec/recorder_gui.html#configuration">Configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="applications/rec/recorder_gui.html#recorders">Recorders</a></li>
-<li class="toctree-l3"><a class="reference internal" href="applications/rec/recorder_gui.html#measurements">Measurements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="applications/rec/recorder_gui.html#options">Options</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="applications/rec/recorder_architecture.html"> eCAL Rec Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications/rec/recorder_gui.html"> eCAL Rec GUI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="applications/rec/recorder_cli.html"> eCAL Rec CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications/rec/recorder_client.html"> eCAL Rec Client</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="applications/sys/sys.html"> eCAL Sys</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="applications/sys/sys_overview.html"> eCAL Sys Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="applications/sys/sys_overview.html#architecture">Architecture</a></li>
-<li class="toctree-l3"><a class="reference internal" href="applications/sys/sys_overview.html#configuration-files">Configuration Files</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="applications/sys/sys_gui.html"> eCAL Sys GUI</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="applications/sys/sys_gui.html#toolbar">Toolbar</a></li>
-<li class="toctree-l3"><a class="reference internal" href="applications/sys/sys_gui.html#task-configuration">Task configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="applications/sys/sys_gui.html#runners">Runners</a></li>
-<li class="toctree-l3"><a class="reference internal" href="applications/sys/sys_gui.html#groups">Groups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="applications/sys/sys_gui.html#options">Options</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="applications/sys/sys_cli.html"> eCAL Sys CLI</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="applications/sys/sys_cli.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="applications/sys/sys_cli.html#typical-use-cases">Typical use-cases</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="applications/sys/sys_cli.html#single-shot-commands">Single-shot commands</a></li>
-<li class="toctree-l4"><a class="reference internal" href="applications/sys/sys_cli.html#interactive-mode">Interactive mode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="applications/sys/sys_cli.html#remote-control-ecal-sys">Remote-control eCAL Sys</a></li>
-<li class="toctree-l4"><a class="reference internal" href="applications/sys/sys_cli.html#automatize-ecal-sys-cli">Automatize eCAL Sys CLI</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="applications/sys/sys_architecture.html"> eCAL Sys Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications/sys/sys_gui.html"> eCAL Sys GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications/sys/sys_cli.html"> eCAL Sys CLI</a></li>
 </ul>
 </li>
 </ul>
@@ -519,7 +498,7 @@
                 <div class="footer-additional">
                     <p class="text-center">
                         <a href="https://github.com/TYPO3-Documentation/sphinx_typo3_theme" rel="nofollow" target="_blank">
-                            TYPO3 Theme 4.4.3
+                            TYPO3 Theme 4.5.2
                         </a>
                     </p>
                 </div>
